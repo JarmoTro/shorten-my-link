@@ -1,0 +1,167 @@
+$color_primary: #000000;
+$color_secondary: #6996dc;
+$color_tertiary: #0d6efd;
+$font_family_primary: 'Manrope', sans-serif;
+$text_font_size: 18px;
+
+body {
+    background-color: #f5f5f5;
+    color: $color_primary;
+    font-family: $font_family_primary;
+    font-size: $text_font_size;
+}
+
+a{
+    color: $color_primary;
+    transition: color 0.4s;
+    text-decoration: none;
+}
+
+a:hover{
+    color: $color_tertiary;
+}
+
+.container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 40px;
+}
+
+.card-container{
+    background: #fff;
+    padding: 25px;
+}
+
+.shorten-url-form-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.shorten-url-form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    row-gap: 20px;
+    align-items: center;
+}
+
+input:not([type="submit"]){
+    padding: .75rem;
+    color: $color_primary;
+    font-family: $font_family_primary;
+    border: 1px solid $color_primary;
+    font-size: 18px;
+    outline: none;
+    width: 100%;
+}
+
+footer{
+    padding: 20px 0;
+}
+
+.footer-container{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+}
+
+input[type="submit"]{
+    padding: .75rem 1rem;
+    border-radius: .25rem;
+    background-color: $color_secondary;
+    color: #FFF;
+    font-size: $text_font_size;
+    outline: none;
+    border: none;
+    transition: background-color 0.4s;
+    font-family: $font_family_primary;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover{
+    background-color: $color_tertiary;
+}
+
+.shorten-url-form label{
+    font-size: 30px;
+    font-weight: 500;
+}
+
+header {
+    .logo {
+        width: 300px;
+    }
+
+    h1 {
+        margin: 0;
+    }
+}
+
+ul.nav-links {
+    margin: 0;
+    padding: 0;
+
+    li {
+        display: inline-block;
+    }
+
+
+    a {
+        font-size: 21px;
+        margin-right: 20px;
+    }
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+@media (max-width: 767px){
+    .footer-container{
+        flex-direction: column;
+        align-items: center;
+        row-gap: 20px;
+    }
+}
+
+@media (max-width: 767px){
+    header .logo{
+        width: 150px;
+    }
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px
+    }
+}
