@@ -16,6 +16,8 @@
 
                 <li><a href="#">Login</a></li>
 
+                <li><a href="#">FAQ</a></li>
+
             </ul>
             
         </nav>
