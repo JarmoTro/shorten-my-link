@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('full_URL');
             $table->string('short_URL');
             $table->timestamp('created_at');
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->nullable()->constrained();
         });
     }
 
