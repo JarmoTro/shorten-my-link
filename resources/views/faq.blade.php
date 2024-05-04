@@ -18,7 +18,7 @@
     ["title" => "Why did my shortened link stop working?",
     "content" => "Most likely the link has expired or been deleted."])
 
-    <p>If you have any questions that remained unaswered, feel free to send a message to <a href="mailto:contact@shortenmylink.com">contact@shortenmylink.com</a>.</p>
+    <p>If you have any questions that remained unanswered, feel free to send a message to <a href="mailto:contact@shortenmylink.com">contact@shortenmylink.com</a>.</p>
 
 </div>
 
