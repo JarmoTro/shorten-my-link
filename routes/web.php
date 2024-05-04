@@ -10,3 +10,5 @@ Route::get('/', function () {
 Route::post('/URLs', [URLController::class, "createURL"]);
 
 Route::get('/URLs/{shortURL}', [URLController::class, "getSingleURL"]);
+
+Route::get('/{shortURL}', [URLController::class, "redirectToURL"]);

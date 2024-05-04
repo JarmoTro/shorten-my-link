@@ -53,7 +53,7 @@ class URLController extends Controller
 
     }
 
-    function getSingleURL(Request $reques, $short_URL){
+    function getSingleURL(Request $request, $short_URL){
 
         $url = URL::where("short_URL", "=", $short_URL)->first();
 
@@ -62,6 +62,18 @@ class URLController extends Controller
         }
 
         return view('single-url')->with("url", $url);
+
+    }
+
+    function redirectToURL(Request $request, $short_URL){
+
+        $url = URL::where("short_URL", "=", $short_URL)->first();
+
+        if(!$url){
+            return view('404');
+        }
+
+        return redirect($url->full_URL);
 
     }
 
