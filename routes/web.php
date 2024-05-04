@@ -7,6 +7,11 @@ Route::get('/', function () {
     return view('home');
 });
 
+
+Route::get('/faq', function () {
+    return view('faq');
+});
+
 Route::post('/URLs', [URLController::class, "createURL"]);
 
 Route::get('/URLs/{shortURL}', [URLController::class, "getSingleURL"]);

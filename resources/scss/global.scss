@@ -170,6 +170,10 @@ nav{
     display: inline-block;
 }
 
+.copy-shortened-link:not(.copied):hover{
+    background-color: #0d6efd;
+}
+
 .copy-shortened-link.copied{
     cursor: default;
 }
@@ -178,6 +182,26 @@ nav{
     font-size: 18px;
     padding: 0.75rem;
     border: 1px solid $color_primary;
+}
+
+.accordion-title{
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.accordion-content{
+    margin-top: .75rem;
+    display: none;
+}
+
+.accordion{
+    padding: .75rem;
+    border: 1px solid $color_primary;
+}
+
+.accordion:not(:last-of-type){
+    border-bottom: none;
 }
 
 .error-404{

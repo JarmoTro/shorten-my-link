@@ -1,17 +1,21 @@
 $(function () {
-    
+
     $("#mobile-menu-toggler").on("click", function () {
         $("nav").slideToggle();
     });
 
-    $(".copy-shortened-link").on("click", function(){
+    $(".accordion-title").on("click", function () {
+        $(this).siblings(".accordion-content").slideToggle();
+    });
+
+    $(".copy-shortened-link").on("click", function () {
         $(this).html("COPIED");
         $(this).addClass("copied");
         const linkToCopy = $(this).attr("data-link");
         navigator.clipboard.writeText(linkToCopy);
     });
 
-    $(".shorten-url-form").on("submit", function(e){
+    $(".shorten-url-form").on("submit", function (e) {
 
         e.preventDefault();
 
@@ -39,7 +43,7 @@ $(function () {
                         $(`<p class="form-validation-error">${error}</p>`).insertBefore($(form).find('input[type="submit"]'));
                     });
                 },
-                500: function (){
+                500: function () {
                     $(`<p class="form-validation-error">Looks like something went wrong. Try again later.</p>`).insertBefore($(form).find('input[type="submit"]'));
                 }
             }
