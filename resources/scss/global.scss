@@ -180,6 +180,10 @@ nav{
     border: 1px solid $color_primary;
 }
 
+.error-404{
+    text-align: center;
+}
+
 @media (max-width: 767px){
     .footer-container{
         flex-direction: column;
