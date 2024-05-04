@@ -15,6 +15,12 @@ body {
     font-size: $text_font_size;
 }
 
+h1{
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0;
+}
+
 a{
     color: $color_primary;
     transition: color 0.4s;
@@ -74,7 +80,6 @@ footer{
 
 input[type="submit"]{
     padding: .75rem 1rem;
-    border-radius: .25rem;
     background-color: $color_secondary;
     color: #FFF;
     font-size: $text_font_size;
@@ -140,6 +145,39 @@ nav{
 
 .form-validation-error{
     color: red;
+}
+
+.content-single-url{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.shortened-link{
+    display: flex;
+    justify-content: center;
+}
+
+.copy-shortened-link{
+    padding: .75rem 1rem;
+    background-color: #6996dc;
+    color: #fff;
+    font-size: 18px;
+    transition: background-color .4s;
+    font-family: Manrope, sans-serif;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.copy-shortened-link.copied{
+    cursor: default;
+}
+
+.shortened-link-inner{
+    font-size: 18px;
+    padding: 0.75rem;
+    border: 1px solid $color_primary;
 }
 
 @media (max-width: 767px){
@@ -215,5 +253,22 @@ nav{
         li{
             padding: 20px 0;
         }
+    }
+}
+
+@media only screen and (max-width: 767px){
+    .shortened-link{
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 767px){
+    .original-link a,
+    .shortened-link a{
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        display: block;
     }
 }

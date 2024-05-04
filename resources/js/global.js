@@ -4,6 +4,13 @@ $(function () {
         $("nav").slideToggle();
     });
 
+    $(".copy-shortened-link").on("click", function(){
+        $(this).html("COPIED");
+        $(this).addClass("copied");
+        const linkToCopy = $(this).attr("data-link");
+        navigator.clipboard.writeText(linkToCopy);
+    });
+
     $(".shorten-url-form").on("submit", function(e){
 
         e.preventDefault();
@@ -21,7 +28,9 @@ $(function () {
             data: $(form).serialize(),
             statusCode: {
                 201: function (res) {
-                    
+                    const data = res;
+                    const createdShortURL = res.shortURL;
+                    window.location = `/URLs/${createdShortURL}`;
                 },
                 400: function (res) {
                     const data = JSON.parse(res.responseText);

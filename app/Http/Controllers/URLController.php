@@ -29,6 +29,8 @@ class URLController extends Controller
 
         $is_URL_verbal = isset($inputs["url_type"]) && $inputs["url_type"] == "verbal" ? true : false;
 
+        $short_URL = "";
+
         while(true){
 
             $short_URL = Helper::get_short_URL($is_URL_verbal);
@@ -47,7 +49,20 @@ class URLController extends Controller
 
         $url->save();
 
-        return response()->json(["errors" => [], "success" => true], 201);
+        return response()->json(["errors" => [], "success" => true, "shortURL" => $short_URL], 201);
 
     }
+
+    function getSingleURL(Request $reques, $short_URL){
+
+        $url = URL::where("short_URL", "=", $short_URL)->first();
+
+        if(!$url){
+            return view('404');
+        }
+
+        return view('single-url')->with("url", $url);
+
+    }
+
 }
