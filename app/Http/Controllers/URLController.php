@@ -29,7 +29,13 @@ class URLController extends Controller
 
         $is_URL_verbal = isset($inputs["url_type"]) && $inputs["url_type"] == "verbal" ? true : false;
 
-        $short_URL = Helper::get_short_URL($is_URL_verbal);
+        while(true){
+
+            $short_URL = Helper::get_short_URL($is_URL_verbal);
+
+            if(!URL::where("short_URL", "=", $short_URL)->exists()) break;
+
+        }
 
         $url = new URL();
 
