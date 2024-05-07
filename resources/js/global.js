@@ -51,4 +51,79 @@ $(function () {
 
     });
 
+    $(".form-login-register").on("submit", function (e) {
+
+        e.preventDefault();
+
+        const form = $(this);
+
+        $(form).find(".form-validation-error").remove();
+
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: '/login',
+            type: 'POST',
+            data: $(form).serialize(),
+            statusCode: {
+                200: function (res) {
+                    window.location = "/my-links";
+                },
+                400: function (res) {
+                    const data = JSON.parse(res.responseText);
+
+                    data.errors.forEach(error => {
+                        $(`<p class="form-validation-error">${error}</p>`).insertBefore($(form).find('.login-register-buttons'));
+                    });
+                },
+                401: function (res) {
+                    const data = JSON.parse(res.responseText);
+
+                    data.errors.forEach(error => {
+                        $(`<p class="form-validation-error">${error}</p>`).insertBefore($(form).find('.login-register-buttons'));
+                    });
+                },
+                500: function () {
+                    $(`<p class="form-validation-error">Looks like something went wrong. Try again later.</p>`).insertBefore($(form).find('.login-register-buttons'));
+                }
+            }
+        });
+        
+    });
+
+    $("#btn-register").on("click", function (e) {
+
+        e.preventDefault();
+
+        const form = $(".form-login-register");
+
+        $(form).find(".form-validation-error").remove();
+
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: '/register',
+            type: 'POST',
+            data: $(form).serialize(),
+            statusCode: {
+                201: function (res) {
+                    window.location = "/my-links";
+                },
+                400: function (res) {
+                    const data = JSON.parse(res.responseText);
+
+                    data.errors.forEach(error => {
+                        $(`<p class="form-validation-error">${error}</p>`).insertBefore($(form).find('.login-register-buttons'));
+                    });
+                },
+                500: function () {
+                    $(`<p class="form-validation-error">Looks like something went wrong. Try again later.</p>`).insertBefore($(form).find('.login-register-buttons'));
+                }
+            }
+        });
+
+    });
+
 })

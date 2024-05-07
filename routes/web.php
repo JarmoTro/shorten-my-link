@@ -2,15 +2,21 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\URLController;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('home');
 });
 
-
 Route::get('/faq', function () {
     return view('faq');
 });
+
+Route::get("/login", [AuthController::class, "getLoginRegisterPage"]);
+
+Route::post("/login", [AuthController::class, "login"]);
+
+Route::post("/register", [AuthController::class, "register"]);
 
 Route::post('/URLs', [URLController::class, "createURL"]);
 

@@ -99,6 +99,17 @@ input[type="submit"]:hover{
     font-weight: 600;
 }
 
+.login-register-buttons{
+    display: flex;
+    gap: 20px;
+}
+
+.form-login-register input:not([type="submit"]){
+    margin: 10px 0 20px 0;
+    max-width: 400px;
+    display: block;
+}
+
 header {
     .logo {
         width: 300px;
@@ -298,5 +309,11 @@ nav{
         overflow: hidden;
         white-space: nowrap;
         display: block;
+    }
+}
+
+@media (max-width: 767px){
+    .login-register-buttons{
+        flex-direction: column;
     }
 }

@@ -14,7 +14,7 @@
 
             <ul class="nav-links">
 
-                <li><a href="#">Login</a></li>
+                <li><a href="/login">Login/register</a></li>
 
                 <li><a href="/faq">FAQ</a></li>
 
