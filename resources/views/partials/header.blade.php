@@ -14,7 +14,17 @@
 
             <ul class="nav-links">
 
+                @guest
+
                 <li><a href="/login">Login/register</a></li>
+
+                @endguest
+
+                @auth
+
+                <li><a href="/my-links">My links</a></li>
+
+                @endauth
 
                 <li><a href="/faq">FAQ</a></li>
 

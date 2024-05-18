@@ -13,7 +13,7 @@ class Helper{
             $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
             for($i = 0; $i < 6; $i++){
-                $char = $characters[rand(0, strlen($characters))];
+                $char = $characters[rand(0, strlen($characters) - 1)];
                 $url .= $char;
             }
 

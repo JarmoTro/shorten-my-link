@@ -9,10 +9,19 @@ $(function () {
     });
 
     $(".copy-shortened-link").on("click", function () {
+
+        $(".copy-shortened-link.copied").html("COPY");
+
+        $(".copy-shortened-link.copied").removeClass("copied");
+
         $(this).html("COPIED");
+
         $(this).addClass("copied");
+
         const linkToCopy = $(this).attr("data-link");
+        
         navigator.clipboard.writeText(linkToCopy);
+
     });
 
     $(".shorten-url-form").on("submit", function (e) {

@@ -22,4 +22,6 @@ Route::post('/URLs', [URLController::class, "createURL"]);
 
 Route::get('/URLs/{shortURL}', [URLController::class, "getSingleURL"]);
 
+Route::get('/my-links', [URLController::class, "getUserLinksPage"]);
+
 Route::get('/{shortURL}', [URLController::class, "redirectToURL"]);

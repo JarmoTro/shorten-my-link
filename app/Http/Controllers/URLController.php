@@ -10,6 +10,16 @@ use Auth;
 
 class URLController extends Controller
 {
+    function getUserLinksPage(Request $request){
+
+        if(!Auth::id()) return redirect("/login");
+
+        $urls = URL::where("user_id", "=", Auth::id())->simplePaginate(10);
+
+        return view("my-links")->with("urls", $urls);
+
+    }
+
     function createURL(Request $request){
 
         $inputs = $request->all();
