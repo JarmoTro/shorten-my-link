@@ -119,7 +119,7 @@ $(function () {
             confirmButtonText: "DELETE",
             cancelButtonText: "CANCEL",
             cancelButtonColor: "#FF0000",
-            text: `This shortened links points to ${fullLink}.`
+            text: `This shortened link points to ${fullLink}.`
           }).then((result) => {
 
             if (result.isConfirmed) {
