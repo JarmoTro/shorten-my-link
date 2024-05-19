@@ -10,6 +10,42 @@ use Auth;
 
 class URLController extends Controller
 {
+
+    function deleteURL(Request $request){
+
+        if(!Auth::id()) return response()->json(["errors" => ["Please log in."], "success" => false], 401);
+
+        $inputs = $request->all();
+
+        $validator = Validator::make($inputs, [
+            "id" => "required"
+        ],
+        [
+            "id.required" => "URL id is not provided.",
+        ]);
+
+        if(!$validator->passes()){
+            return response()->json(["errors" => $validator->errors()->all(), "success" => false], 400);
+        }
+
+        $id = $inputs["id"];
+
+        $url = URL::where("id", "=", $id)->first();
+
+        if(!$url){
+            return response()->json(["errors" => ["Given id does not match any URL."], "success" => false], 400);
+        }
+
+        if(!$url->user_id || Auth::id() != $url->user_id){
+            return response()->json(["errors" => ["This URL does not belong to you."], "success" => false], 403);
+        }
+
+        $url->delete();
+
+        return response()->json(["errors" => [], "success" => true], 200);
+
+    }
+
     function getUserLinksPage(Request $request){
 
         if(!Auth::id()) return redirect("/login");

@@ -28,7 +28,7 @@
                             COPY
                         </div>
 
-                        <button class="btn-danger">DELETE</button>
+                        <button class="btn-danger btn-delete-url" data-url-id="{{ $url->id }}">DELETE</button>
 
                     </div>
 
@@ -42,11 +42,25 @@
 
     @else
 
-        <p class="mt-0">Looks like you haven't shortened any links yet.</p>
+        @if(isset($_GET["page"]) && $_GET["page"] > 1)
 
-        <a href="/" class="btn-default">
-            SHORTEN A LINK
-        </a>
+            <p class="mt-0">Looks like there aren't any links on this page.</p>
+
+            <a href="/my-links" class="btn-default">
+                BACK TO FIRST PAGE
+            </a>
+
+        @else
+
+            <p class="mt-0">Looks like you haven't shortened any links yet.</p>
+
+            <a href="/" class="btn-default">
+                SHORTEN A LINK
+            </a>
+
+        @endif
+
+        
 
     @endif
 
