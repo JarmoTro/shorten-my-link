@@ -4,7 +4,7 @@
 
 <div class="card-container">
 
-    <h2 class="page-title">My links</h2>
+    <h1 class="page-title">My links</h1>
 
     @if(count($urls) > 0)
 
@@ -59,8 +59,6 @@
             </a>
 
         @endif
-
-        
 
     @endif
 

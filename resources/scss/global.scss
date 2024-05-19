@@ -25,6 +25,7 @@ h1{
     font-size: 30px;
     font-weight: 600;
     margin-top: 0;
+    margin-bottom: 20px;
 }
 
 .mt-0{
@@ -294,6 +295,10 @@ nav{
     display: flex;
     gap: 20px;
     margin-top: 20px;
+}
+
+.original-link a{
+    line-break: anywhere;
 }
 
 @media (max-width: 767px){
